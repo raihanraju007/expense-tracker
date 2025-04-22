@@ -1,7 +1,8 @@
 <?php
-use App\Http\Controllers\Api\AuthController;
-use App\Http\Controllers\Api\CategoryController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\BudgetController;
+use App\Http\Controllers\Api\CategoryController;
 
 
 
@@ -19,6 +20,14 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('{id}', [CategoryController::class, 'show']);
         Route::put('{id}', [CategoryController::class, 'update']);
         Route::delete('{id}', [CategoryController::class, 'destroy']);
+    });
+
+    Route::prefix('budgets')->group(function () {
+        Route::get('/', [BudgetController::class, 'index']);
+        Route::post('/', [BudgetController::class, 'store']);
+        Route::get('/{id}', [BudgetController::class, 'show']);
+        Route::put('/{id}', [BudgetController::class, 'update']);
+        Route::delete('/{id}', [BudgetController::class, 'destroy']);
     });
 
 

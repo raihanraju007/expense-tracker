@@ -33,7 +33,7 @@ class ApiResponse
 
     public static function deleted(string $message = 'Deleted'): JsonResponse
     {
-        return self::success(null, $message, 204);
+        return self::success(null, $message, 200);
     }
 
     public static function unauthorized(string $message = 'Unauthorized'): JsonResponse
