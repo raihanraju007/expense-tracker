@@ -1,9 +1,10 @@
 <?php
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\BudgetController;
-use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\ReportController;
 use App\Http\Controllers\Api\ExpenseController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\CategoryController;
 
 
 
@@ -39,6 +40,15 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('{id}', [ExpenseController::class, 'show']);
         Route::put('{id}', [ExpenseController::class, 'update']);
         Route::delete('{id}', [ExpenseController::class, 'destroy']);
+    });
+
+    Route::prefix('reports')->group(function () {
+        Route::get('/monthly-summary', [ReportController::class, 'monthlySummary']);
+        Route::get('/category-wise', [ReportController::class, 'categoryWise']);
+        Route::get('/budget-vs-actual', [ReportController::class, 'budgetVsActual']);
+        Route::get('/historical-trends', [ReportController::class, 'historicalTrends']);
+        Route::get('/timeline', [ReportController::class, 'timeline']);
+        Route::get('/custom-period', [ReportController::class, 'customPeriod']);
     });
 
 
