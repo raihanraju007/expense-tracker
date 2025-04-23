@@ -22,12 +22,12 @@ cp .env.example .env
 # 5. Run database migrations
 ./vendor/bin/sail artisan migrate
 
-
 🌐 Access URLs
 
 Application URL: http://localhost
-
 phpMyAdmin URL: http://localhost:8081
+
+🧩 Folder Structure
 
 app/
 ├── DTOs/
@@ -75,166 +75,79 @@ app/
 
 ✅ Feature Overview
 🔐 Auth (via Sanctum)
-POST /register
-
-POST /login
-
-GET /profile
-
-POST /logout
+    POST /register
+    
+    POST /login
+    
+    GET /profile
+    
+    POST /logout
 
 📁 Category Module
-GET /categories
-
-POST /categories
-
-GET /categories/{id}
-
-PUT /categories/{id}
-
-DELETE /categories/{id}
+    GET /categories
+    
+    POST /categories
+    
+    GET /categories/{id}
+    
+    PUT /categories/{id}
+    
+    DELETE /categories/{id}
 
 💸 Budget Module
-GET /budgets
-
-POST /budgets
-
-GET /budgets/{id}
-
-PUT /budgets/{id}
-
-DELETE /budgets/{id}
+    GET /budgets
+    
+    POST /budgets
+    
+    GET /budgets/{id}
+    
+    PUT /budgets/{id}
+    
+    DELETE /budgets/{id}
 
 🧾 Expense Module
-GET /expenses
-
-POST /expenses
-
-GET /expenses/{id}
-
-PUT /expenses/{id}
-
-DELETE /expenses/{id}
+    GET /expenses
+    
+    POST /expenses
+    
+    GET /expenses/{id}
+    
+    PUT /expenses/{id}
+    
+    DELETE /expenses/{id}
 
 📊 Reports Module
-GET /reports/monthly-summary
-
-GET /reports/category-wise
-
-GET /reports/budget-vs-actual
-
-GET /reports/historical-trends
-
-GET /reports/top-days
-
-GET /reports/most-frequent-category
+    GET /reports/monthly-summary
+    
+    GET /reports/category-wise
+    
+    GET /reports/budget-vs-actual
+    
+    GET /reports/historical-trends
+    
+    GET /reports/top-days
+    
+    GET /reports/most-frequent-category
 
 🛠 Architecture Principles
-✅ Laravel 12 + Sail (Docker-ready)
-
-✅ Sanctum Authentication
-
-✅ Clean Architecture
-
-DTOs for consistent API output
-
-Services + ServiceImpl
-
-Repositories for DB access
-
-Form Requests for validation
-
-Custom Exception Handling
-
-✅ TracksUserActivity trait to auto-manage created_by and updated_by
-
-✅ Consistent API output with ApiResponse.php
-
-
-
-
-**✅ Features Implemented**
-
-**👤 Auth Module (Sanctum)**
-
-        POST /register
-        
-        POST /login
-        
-        GET /profile
-        
-        POST /logout
-
-**📂 Categories**
-
-        GET /categories
-        
-        POST /categories
-        
-        GET /categories/{id}
-        
-        PUT /categories/{id}
-        
-        DELETE /categories/{id}
-
-**💰 Budgets**
-
-        GET /budgets
-        
-        POST /budgets
-        
-        GET /budgets/{id}
-        
-        PUT /budgets/{id}
-        
-        DELETE /budgets/{id}
-
-**🧾 Expenses**
-
-        **GET /expenses
-        
-        POST /expenses
-        
-        GET /expenses/{id}
-        
-        PUT /expenses/{id}
-        
-        DELETE /expenses/{id}**
-
-**📊 Reports**
-
-        GET /reports/monthly-summary
-        
-        GET /reports/category-wise
-        
-        GET /reports/budget-vs-actual
-        
-        GET /reports/historical-trends
-        
-        GET /reports/top-days
-        
-        GET /reports/most-frequent-category
-
-**💡 Tech & Design Principles**
-
-    -> Laravel 12
+    ✅ Laravel 12 + Sail (Docker-ready)
     
-    -> Sanctum Authentication
+    ✅ Sanctum Authentication
     
-    -> Eloquent ORM
+    ✅ Clean Architecture
 
-    -> **Clean Architecture:**
+        DTOs for consistent API output
+        
+        Services + ServiceImpl
+        
+        Repositories for DB access
+        
+        Form Requests for validation
+        
+        Custom Exception Handling
 
-            DTOs for response formatting
-            
-            Services + Implementations
-            
-            Repositories for DB logic
-            
-            Custom Exception Handling
-            
-            Unified Validation Requests
-            
-            Reusable ApiResponse helper
+        Unified Validation Requests
 
-    -> Centralized user tracking with TracksUserActivity
+    ✅ TracksUserActivity trait to auto-manage created_by and updated_by
+    
+    ✅ Consistent API output with ApiResponse.php
