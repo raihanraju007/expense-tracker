@@ -1,74 +1,157 @@
-📁 Laravel Expense Tracker - Folder Structure & Feature Overview
+# 📊 Laravel Expense Tracker API
 
-🐳 Docker-Ready Setup with Laravel Sail
+## 🚀 Docker-Ready Laravel 12 Setup (via Sail)
 
-🔧 Installation via Sail
+### 🧪 Quick Start
 
+```bash
 # 1. Clone the repository
 git clone <your-repo-url>
 cd expense-tracker
 
-# 2. Copy the example env file
+# 2. Copy the env file
 cp .env.example .env
 
-# 3. Start Laravel Sail and install dependencies
+# 3. Start Sail and install dependencies
 ./vendor/bin/sail up -d
 ./vendor/bin/sail composer install
 
 # 4. Generate application key
 ./vendor/bin/sail artisan key:generate
 
-# 5. Run migrations
+# 5. Run database migrations
 ./vendor/bin/sail artisan migrate
 
-**phpMyAdmin URL** -> http://localhost:8081/
-**Application URL ->** http://localhost/
 
-**🧩 Folder Structure**
+🌐 Access URLs
+
+Application URL: http://localhost
+
+phpMyAdmin URL: http://localhost:8081
 
 app/
 ├── DTOs/
-│   ├── CategoryDTO.php
 │   ├── BudgetDTO.php
-│   ├── ExpenseDTO.php
+│   ├── CategoryDTO.php
+│   └── ExpenseDTO.php
 ├── Exceptions/
 │   └── CustomExceptionHandler.php
 ├── Helpers/
 │   └── ApiResponse.php
 ├── Http/
-│   ├── Controllers/
-│   │   └── Api/
-│   │       ├── AuthController.php
-│   │       ├── CategoryController.php
-│   │       ├── BudgetController.php
-│   │       ├── ExpenseController.php
-│   │       └── ReportController.php
+│   ├── Controllers/Api/
+│   │   ├── AuthController.php
+│   │   ├── BudgetController.php
+│   │   ├── CategoryController.php
+│   │   ├── ExpenseController.php
+│   │   └── ReportController.php
 │   └── Requests/
-│       ├── CategoryRequest.php
 │       ├── BudgetRequest.php
+│       ├── CategoryRequest.php
 │       └── ExpenseRequest.php
 ├── Models/
-│   ├── User.php
-│   ├── Category.php
 │   ├── Budget.php
-│   └── Expense.php
+│   ├── Category.php
+│   ├── Expense.php
+│   └── User.php
 ├── Repositories/
-│   ├── CategoryRepository.php
 │   ├── BudgetRepository.php
+│   ├── CategoryRepository.php
 │   ├── ExpenseRepository.php
 │   └── ReportsRepository.php
 ├── Services/
-│   ├── CategoryService.php
 │   ├── BudgetService.php
+│   ├── CategoryService.php
 │   ├── ExpenseService.php
 │   └── ReportService.php
 ├── ServiceImpl/
-│   ├── CategoryServiceImpl.php
 │   ├── BudgetServiceImpl.php
+│   ├── CategoryServiceImpl.php
 │   ├── ExpenseServiceImpl.php
 │   └── ReportServiceImpl.php
 ├── Traits/
 │   └── TracksUserActivity.php
+
+
+✅ Feature Overview
+🔐 Auth (via Sanctum)
+POST /register
+
+POST /login
+
+GET /profile
+
+POST /logout
+
+📁 Category Module
+GET /categories
+
+POST /categories
+
+GET /categories/{id}
+
+PUT /categories/{id}
+
+DELETE /categories/{id}
+
+💸 Budget Module
+GET /budgets
+
+POST /budgets
+
+GET /budgets/{id}
+
+PUT /budgets/{id}
+
+DELETE /budgets/{id}
+
+🧾 Expense Module
+GET /expenses
+
+POST /expenses
+
+GET /expenses/{id}
+
+PUT /expenses/{id}
+
+DELETE /expenses/{id}
+
+📊 Reports Module
+GET /reports/monthly-summary
+
+GET /reports/category-wise
+
+GET /reports/budget-vs-actual
+
+GET /reports/historical-trends
+
+GET /reports/top-days
+
+GET /reports/most-frequent-category
+
+🛠 Architecture Principles
+✅ Laravel 12 + Sail (Docker-ready)
+
+✅ Sanctum Authentication
+
+✅ Clean Architecture
+
+DTOs for consistent API output
+
+Services + ServiceImpl
+
+Repositories for DB access
+
+Form Requests for validation
+
+Custom Exception Handling
+
+✅ TracksUserActivity trait to auto-manage created_by and updated_by
+
+✅ Consistent API output with ApiResponse.php
+
+
+
 
 **✅ Features Implemented**
 
