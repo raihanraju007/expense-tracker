@@ -31,19 +31,13 @@ class ReportController extends Controller
         return ApiResponse::success($this->service->historicalTrends(), 'Historical Spending Trends');
     }
 
-    // public function timeline(Request $request)
-    // {
-    //     return ApiResponse::success(
-    //         $this->service->expenseTimeline($request->start_date, $request->end_date),
-    //         'Expense Timeline'
-    //     );
-    // }
+    public function topDays()
+    {
+        return ApiResponse::success($this->service->topSpendingDays(), 'Top 5 Spending Days');
+    }
 
-    // public function customPeriod(Request $request)
-    // {
-    //     return ApiResponse::success(
-    //         $this->service->customPeriodReport($request->start_date, $request->end_date),
-    //         'Custom Period Report'
-    //     );
-    // }
+    public function mostFrequent()
+    {
+        return ApiResponse::success($this->service->mostFrequentCategory(), 'Most Frequently Used Category');
+    }
 }

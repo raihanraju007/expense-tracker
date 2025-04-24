@@ -1,0 +1,2272 @@
+{
+	"info": {
+		"_postman_id": "48ea4b87-dad4-4197-b6f5-18e11117137d",
+		"name": "Expense Tracker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15591403"
+	},
+	"item": [
+		{
+			"name": "Auth Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Raihan Hossin\",\r\n  \"email\": \"raihan@gmail.com\",\r\n  \"password\": \"password\",\r\n  \"password_confirmation\": \"password\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/register",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Auth Register",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Raihan Hossin\",\r\n  \"email\": \"raihan@gmail.com\",\r\n  \"password\": \"password\",\r\n  \"password_confirmation\": \"password\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.4.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 21 Apr 2025 15:20:06 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"User registered successfully.\",\n    \"token\": \"2|89EOntfGrfccSNw1FF2cBURjxSToXNS88eTEDlft1aef41d7\",\n    \"user\": {\n        \"name\": \"Raihan Hossin\",\n        \"email\": \"raihan@gmail.com\",\n        \"updated_at\": \"2025-04-21T15:20:06.000000Z\",\n        \"created_at\": \"2025-04-21T15:20:06.000000Z\",\n        \"id\": 3\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Auth Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"raihan@gmail.com\",\r\n    \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Auth Login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"raihan@gmail.com\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.4.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 21 Apr 2025 15:26:24 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Login successful.\",\n    \"token\": \"3|ZT0ARGPwHPpp4XAnZxxOx8M6n0Ej9JFNms2BCBoI89b4dde3\",\n    \"user\": {\n        \"id\": 3,\n        \"name\": \"Raihan Hossin\",\n        \"email\": \"raihan@gmail.com\",\n        \"email_verified_at\": null,\n        \"created_at\": \"2025-04-21T15:20:06.000000Z\",\n        \"updated_at\": \"2025-04-21T15:20:06.000000Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Categories Store",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"House Rent\",\r\n  \"slug\": \"house-rent\",\r\n  \"description\": \"Monthly House Rent\",\r\n  \"is_active\": true\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/categories",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"categories"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Categories Store",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"House Rent\",\r\n  \"slug\": \"house-rent\",\r\n  \"description\": \"Monthly House Rent\",\r\n  \"is_active\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/categories",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.4.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 21 Apr 2025 17:49:46 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"Category created successfully.\",\n    \"data\": {\n        \"name\": \"House Rent\",\n        \"slug\": \"house-rent\",\n        \"description\": \"Monthly House Rent\",\n        \"is_active\": true,\n        \"created_by\": 3,\n        \"updated_at\": \"2025-04-21T17:49:46.000000Z\",\n        \"created_at\": \"2025-04-21T17:49:46.000000Z\",\n        \"id\": 2\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Categories List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/categories",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"categories"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Categories List",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/categories",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.4.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Apr 2025 04:16:31 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"status_code\": 200,\n    \"message\": \"Category list fetched successfully\",\n    \"data\": [\n        {\n            \"id\": 4,\n            \"name\": \"Fast Food\",\n            \"slug\": \"fast-food\",\n            \"description\": \"Fast Food\",\n            \"is_active\": 1,\n            \"created_by\": 1,\n            \"created_at\": \"2025-04-24T04:16:10.000000Z\",\n            \"updated_at\": \"2025-04-24T04:16:10.000000Z\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Breakfast\",\n            \"slug\": \"breakfast\",\n            \"description\": \"Breakfast\",\n            \"is_active\": 1,\n            \"created_by\": 1,\n            \"created_at\": \"2025-04-24T04:15:11.000000Z\",\n            \"updated_at\": \"2025-04-24T04:15:11.000000Z\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Grocery\",\n            \"slug\": \"grocery\",\n            \"description\": \"grocery\",\n            \"is_active\": 1,\n            \"created_by\": 1,\n            \"created_at\": \"2025-04-24T04:14:23.000000Z\",\n            \"updated_at\": \"2025-04-24T04:14:23.000000Z\"\n        },\n        {\n            \"id\": 1,\n            \"name\": \"House Rent\",\n            \"slug\": \"house-rent\",\n            \"description\": \"Monthly House Rent\",\n            \"is_active\": 1,\n            \"created_by\": 1,\n            \"created_at\": \"2025-04-22T07:27:15.000000Z\",\n            \"updated_at\": \"2025-04-22T07:27:15.000000Z\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Show Categories Using ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/categories/3",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"categories",
+						"3"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Show Categories Using ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/categories/3",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"categories",
+								"3"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.4.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 21 Apr 2025 18:47:02 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"Category details fetched\",\n    \"data\": {\n        \"id\": 3,\n        \"name\": \"Update Complate\",\n        \"slug\": \"update-complate\",\n        \"description\": \"Update Complate\",\n        \"is_active\": 1,\n        \"created_by\": 3,\n        \"created_at\": \"2025-04-21T17:57:18.000000Z\",\n        \"updated_at\": \"2025-04-21T18:37:20.000000Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Categories",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Update done\",\r\n  \"slug\": \"update\",\r\n  \"description\": \"update done\",\r\n  \"is_active\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/categories/3",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"categories",
+						"3"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update Categories",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Update done\",\r\n  \"slug\": \"update\",\r\n  \"description\": \"update done\",\r\n  \"is_active\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/categories/3",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"categories",
+								"3"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.4.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 21 Apr 2025 19:23:47 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"Category updated successfully\",\n    \"data\": {\n        \"id\": 3,\n        \"name\": \"Update done\",\n        \"slug\": \"update\",\n        \"description\": \"update done\",\n        \"is_active\": false,\n        \"created_by\": 3,\n        \"created_at\": \"2025-04-21T17:57:18.000000Z\",\n        \"updated_at\": \"2025-04-21T19:23:47.000000Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Categories Deleted ",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/categories/3",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"categories",
+						"3"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Categories Deleted",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/categories/3",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"categories",
+								"3"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.4.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 21 Apr 2025 19:25:51 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"Category deleted successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Budgets Store",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"amount\": 5000,\r\n  \"month_year\": \"2025-01\",\r\n  \"is_active\": true\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/budgets",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"budgets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Budgets Store",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"amount\": 5000,\r\n  \"month_year\": \"2025-01\",\r\n  \"is_active\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/budgets",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"budgets"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.4.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 22 Apr 2025 06:11:22 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"status_code\": 201,\n    \"message\": \"Budget created successfully\",\n    \"data\": {\n        \"id\": 1,\n        \"user_id\": 3,\n        \"amount\": 5000,\n        \"month_year\": \"2025-01\",\n        \"is_active\": true,\n        \"created_by\": 3,\n        \"created_at\": \"2025-04-22T06:11:22.000000Z\",\n        \"updated_at\": \"2025-04-22T06:11:22.000000Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Budgets List",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/budgets",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"budgets"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Budgets List",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/budgets",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"budgets"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.4.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 22 Apr 2025 06:31:36 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"status_code\": 200,\n    \"message\": \"Budget list fetched successfully\",\n    \"data\": [\n        {\n            \"id\": 10,\n            \"user_id\": 3,\n            \"amount\": \"50000.00\",\n            \"month_year\": \"2025-05\",\n            \"is_active\": true,\n            \"created_by\": 3,\n            \"created_at\": \"2025-04-22T06:31:30.000000Z\",\n            \"updated_at\": \"2025-04-22T06:31:30.000000Z\"\n        },\n        {\n            \"id\": 9,\n            \"user_id\": 3,\n            \"amount\": \"40000.00\",\n            \"month_year\": \"2025-04\",\n            \"is_active\": true,\n            \"created_by\": 3,\n            \"created_at\": \"2025-04-22T06:31:21.000000Z\",\n            \"updated_at\": \"2025-04-22T06:31:21.000000Z\"\n        },\n        {\n            \"id\": 8,\n            \"user_id\": 3,\n            \"amount\": \"30000.00\",\n            \"month_year\": \"2025-03\",\n            \"is_active\": true,\n            \"created_by\": 3,\n            \"created_at\": \"2025-04-22T06:31:12.000000Z\",\n            \"updated_at\": \"2025-04-22T06:31:12.000000Z\"\n        },\n        {\n            \"id\": 7,\n            \"user_id\": 3,\n            \"amount\": \"20000.00\",\n            \"month_year\": \"2025-02\",\n            \"is_active\": true,\n            \"created_by\": 3,\n            \"created_at\": \"2025-04-22T06:31:01.000000Z\",\n            \"updated_at\": \"2025-04-22T06:31:01.000000Z\"\n        },\n        {\n            \"id\": 1,\n            \"user_id\": 3,\n            \"amount\": \"5000.00\",\n            \"month_year\": \"2025-01\",\n            \"is_active\": true,\n            \"created_by\": 3,\n            \"created_at\": \"2025-04-22T06:11:22.000000Z\",\n            \"updated_at\": \"2025-04-22T06:11:22.000000Z\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Budgets Update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"amount\": 10000,\r\n  \"month_year\": \"2025-01\",\r\n  \"is_active\": true\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/budgets/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"budgets",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Budgets Update",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"amount\": 10000,\r\n  \"month_year\": \"2025-01\",\r\n  \"is_active\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/budgets/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"budgets",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.4.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 22 Apr 2025 07:33:19 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"status_code\": 200,\n    \"message\": \"Budget updated successfully\",\n    \"data\": {\n        \"id\": 1,\n        \"user_id\": 1,\n        \"amount\": 10000,\n        \"month_year\": \"2025-01\",\n        \"is_active\": true,\n        \"created_by\": 1,\n        \"created_at\": \"2025-04-22T07:32:28.000000Z\",\n        \"updated_at\": \"2025-04-22T07:33:19.000000Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Budgets Delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/budgets/2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"budgets",
+						"2"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Budgets Delete",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/budgets/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"budgets",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.4.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 22 Apr 2025 07:43:09 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"status_code\": 200,\n    \"message\": \"Budget deleted successfully\",\n    \"data\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Expenses Store",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\": 500.50,\r\n    \"description\": \"Food cost\",\r\n    \"date\": \"2025-04-21\",\r\n    \"category_id\": 1\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/expenses",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"expenses"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Expenses Store",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\": 450.50,\r\n    \"description\": \"Groceries and snacks\",\r\n    \"date\": \"2025-04-21\",\r\n    \"category_id\": 1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/expenses",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"expenses"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.4.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 22 Apr 2025 08:41:28 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"status_code\": 201,\n    \"message\": \"Expense created successfully\",\n    \"data\": {\n        \"id\": 1,\n        \"amount\": 450.5,\n        \"description\": \"Groceries and snacks\",\n        \"date\": \"2025-04-21T00:00:00.000000Z\",\n        \"category_id\": 1,\n        \"user_id\": 1,\n        \"created_by\": 1,\n        \"created_at\": \"2025-04-22T08:41:28.000000Z\",\n        \"updated_at\": \"2025-04-22T08:41:28.000000Z\"\n    }\n}"
+				},
+				{
+					"name": "Expenses Store",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\": 500.50,\r\n    \"description\": \"Food cost\",\r\n    \"date\": \"2025-04-21\",\r\n    \"category_id\": 1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/expenses",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"expenses"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.4.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 22 Apr 2025 08:42:45 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"status_code\": 201,\n    \"message\": \"Expense created successfully\",\n    \"data\": {\n        \"id\": 3,\n        \"amount\": 500.5,\n        \"description\": \"Food cost\",\n        \"date\": \"2025-04-21T00:00:00.000000Z\",\n        \"category_id\": 1,\n        \"user_id\": 1,\n        \"created_by\": 1,\n        \"created_at\": \"2025-04-22T08:42:45.000000Z\",\n        \"updated_at\": \"2025-04-22T08:42:45.000000Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Expenses List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/expenses",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"expenses"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Expenses List",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/expenses",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"expenses"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.4.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Apr 2025 04:33:53 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"status_code\": 200,\n    \"message\": \"Expense list fetched successfully\",\n    \"data\": [\n        {\n            \"id\": 14,\n            \"amount\": \"100.00\",\n            \"description\": \"Fast Food\",\n            \"date\": \"2025-04-24T00:00:00.000000Z\",\n            \"category_id\": 4,\n            \"user_id\": 1,\n            \"created_by\": 1,\n            \"created_at\": \"2025-04-24T04:33:48.000000Z\",\n            \"updated_at\": \"2025-04-24T04:33:48.000000Z\"\n        },\n        {\n            \"id\": 13,\n            \"amount\": \"600.00\",\n            \"description\": \"Fast Food\",\n            \"date\": \"2025-04-23T00:00:00.000000Z\",\n            \"category_id\": 4,\n            \"user_id\": 1,\n            \"created_by\": 1,\n            \"created_at\": \"2025-04-24T04:33:40.000000Z\",\n            \"updated_at\": \"2025-04-24T04:33:40.000000Z\"\n        },\n        {\n            \"id\": 12,\n            \"amount\": \"500.00\",\n            \"description\": \"Fast Food\",\n            \"date\": \"2025-04-22T00:00:00.000000Z\",\n            \"category_id\": 4,\n            \"user_id\": 1,\n            \"created_by\": 1,\n            \"created_at\": \"2025-04-24T04:33:33.000000Z\",\n            \"updated_at\": \"2025-04-24T04:33:33.000000Z\"\n        },\n        {\n            \"id\": 11,\n            \"amount\": \"500.00\",\n            \"description\": \"Fast Food\",\n            \"date\": \"2025-04-24T00:00:00.000000Z\",\n            \"category_id\": 4,\n            \"user_id\": 1,\n            \"created_by\": 1,\n            \"created_at\": \"2025-04-24T04:33:26.000000Z\",\n            \"updated_at\": \"2025-04-24T04:33:26.000000Z\"\n        },\n        {\n            \"id\": 10,\n            \"amount\": \"300.00\",\n            \"description\": \"Fast Food\",\n            \"date\": \"2025-04-22T00:00:00.000000Z\",\n            \"category_id\": 3,\n            \"user_id\": 1,\n            \"created_by\": 1,\n            \"created_at\": \"2025-04-24T04:32:48.000000Z\",\n            \"updated_at\": \"2025-04-24T04:32:48.000000Z\"\n        },\n        {\n            \"id\": 9,\n            \"amount\": \"200.00\",\n            \"description\": \"Egg & Others\",\n            \"date\": \"2025-04-22T00:00:00.000000Z\",\n            \"category_id\": 3,\n            \"user_id\": 1,\n            \"created_by\": 1,\n            \"created_at\": \"2025-04-24T04:31:01.000000Z\",\n            \"updated_at\": \"2025-04-24T04:31:01.000000Z\"\n        },\n        {\n            \"id\": 8,\n            \"amount\": \"100.00\",\n            \"description\": \"Egg & Others\",\n            \"date\": \"2025-04-22T00:00:00.000000Z\",\n            \"category_id\": 3,\n            \"user_id\": 1,\n            \"created_by\": 1,\n            \"created_at\": \"2025-04-24T04:30:48.000000Z\",\n            \"updated_at\": \"2025-04-24T04:30:48.000000Z\"\n        },\n        {\n            \"id\": 7,\n            \"amount\": \"100.00\",\n            \"description\": \"Egg & Others\",\n            \"date\": \"2025-04-24T00:00:00.000000Z\",\n            \"category_id\": 3,\n            \"user_id\": 1,\n            \"created_by\": 1,\n            \"created_at\": \"2025-04-24T04:30:24.000000Z\",\n            \"updated_at\": \"2025-04-24T04:30:24.000000Z\"\n        },\n        {\n            \"id\": 6,\n            \"amount\": \"3000.50\",\n            \"description\": \"Chicken and Vegetable\",\n            \"date\": \"2025-04-24T00:00:00.000000Z\",\n            \"category_id\": 2,\n            \"user_id\": 1,\n            \"created_by\": 1,\n            \"created_at\": \"2025-04-24T04:29:13.000000Z\",\n            \"updated_at\": \"2025-04-24T04:29:13.000000Z\"\n        },\n        {\n            \"id\": 5,\n            \"amount\": \"3000.50\",\n            \"description\": \"Fish & Beef\",\n            \"date\": \"2025-04-24T00:00:00.000000Z\",\n            \"category_id\": 2,\n            \"user_id\": 1,\n            \"created_by\": 1,\n            \"created_at\": \"2025-04-24T04:28:22.000000Z\",\n            \"updated_at\": \"2025-04-24T04:28:22.000000Z\"\n        },\n        {\n            \"id\": 4,\n            \"amount\": \"500.50\",\n            \"description\": \"Rice, Oil & etc\",\n            \"date\": \"2025-04-24T00:00:00.000000Z\",\n            \"category_id\": 2,\n            \"user_id\": 1,\n            \"created_by\": 1,\n            \"created_at\": \"2025-04-24T04:27:30.000000Z\",\n            \"updated_at\": \"2025-04-24T04:27:30.000000Z\"\n        },\n        {\n            \"id\": 2,\n            \"amount\": \"40.00\",\n            \"description\": \"Morning Breakfast\",\n            \"date\": \"2025-04-21T00:00:00.000000Z\",\n            \"category_id\": 1,\n            \"user_id\": 1,\n            \"created_by\": 1,\n            \"created_at\": \"2025-04-22T08:42:31.000000Z\",\n            \"updated_at\": \"2025-04-22T08:48:52.000000Z\"\n        },\n        {\n            \"id\": 1,\n            \"amount\": \"450.50\",\n            \"description\": \"Groceries and snacks\",\n            \"date\": \"2025-04-21T00:00:00.000000Z\",\n            \"category_id\": 1,\n            \"user_id\": 1,\n            \"created_by\": 1,\n            \"created_at\": \"2025-04-22T08:41:28.000000Z\",\n            \"updated_at\": \"2025-04-22T08:41:28.000000Z\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Expenses Show",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/expenses/2?",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"expenses",
+						"2"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Expenses Show",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/expenses/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"expenses",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.4.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 22 Apr 2025 08:45:07 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"status_code\": 200,\n    \"message\": \"Expense details fetched\",\n    \"data\": {\n        \"id\": 2,\n        \"amount\": \"50.50\",\n        \"description\": \"Food cost\",\n        \"date\": \"2025-04-21T00:00:00.000000Z\",\n        \"category_id\": 1,\n        \"user_id\": 1,\n        \"created_by\": 1,\n        \"created_at\": \"2025-04-22T08:42:31.000000Z\",\n        \"updated_at\": \"2025-04-22T08:42:31.000000Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Expenses Update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\": 40.00,\r\n    \"description\": \"Morning Breakfast\",\r\n    \"date\": \"2025-04-21\",\r\n    \"category_id\": 1\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/expenses/2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"expenses",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Expenses Update",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\": 40.00,\r\n    \"description\": \"Morning Breakfast\",\r\n    \"date\": \"2025-04-21\",\r\n    \"category_id\": 1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/expenses/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"expenses",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.4.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 22 Apr 2025 08:48:52 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"status_code\": 200,\n    \"message\": \"Expense updated successfully\",\n    \"data\": {\n        \"id\": 2,\n        \"amount\": 40,\n        \"description\": \"Morning Breakfast\",\n        \"date\": \"2025-04-21T00:00:00.000000Z\",\n        \"category_id\": 1,\n        \"user_id\": 1,\n        \"created_by\": 1,\n        \"created_at\": \"2025-04-22T08:42:31.000000Z\",\n        \"updated_at\": \"2025-04-22T08:48:52.000000Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Expenses Delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/expenses/3?",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"expenses",
+						"3"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Expenses Delete",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/expenses/3",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"expenses",
+								"3"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.4.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 22 Apr 2025 08:50:01 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"status_code\": 200,\n    \"message\": \"Expense deleted successfully\",\n    \"data\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Reports Monthly Summary",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/reports/monthly-summary",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"reports",
+						"monthly-summary"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Reports Monthly Summary",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/reports/monthly-summary",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"reports",
+								"monthly-summary"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.4.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Apr 2025 04:34:54 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"status_code\": 200,\n    \"message\": \"Monthly Summary Report\",\n    \"data\": {\n        \"budget_amount\": \"40000.00\",\n        \"total_spent\": 9392,\n        \"budget_used_percentage\": 23.48,\n        \"categories\": [\n            {\n                \"total\": 490.5,\n                \"category_name\": \"House Rent\"\n            },\n            {\n                \"total\": 6501.5,\n                \"category_name\": \"Grocery\"\n            },\n            {\n                \"total\": 700,\n                \"category_name\": \"Breakfast\"\n            },\n            {\n                \"total\": 1700,\n                \"category_name\": \"Fast Food\"\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Reports Category Wise",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/reports/category-wise",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"reports",
+						"category-wise"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Reports Category Wise",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/reports/category-wise",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"reports",
+								"category-wise"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.4.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 22 Apr 2025 09:27:51 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"status_code\": 200,\n    \"message\": \"Category-wise Spending Report\",\n    \"data\": {\n        \"breakdown\": [\n            {\n                \"category\": \"House Rent\",\n                \"total_spent\": 490.5\n            }\n        ],\n        \"most_expensive\": {\n            \"category\": \"House Rent\",\n            \"total_spent\": 490.5\n        },\n        \"least_expensive\": {\n            \"category\": \"House Rent\",\n            \"total_spent\": 490.5\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Reports Budget Vs Actual",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/reports/budget-vs-actual",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"reports",
+						"budget-vs-actual"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Reports Budget Vs Actual",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/reports/budget-vs-actual",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"reports",
+								"budget-vs-actual"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.4.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 22 Apr 2025 09:29:20 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"status_code\": 200,\n    \"message\": \"Budget vs. Actual Report\",\n    \"data\": {\n        \"budget\": 0,\n        \"actual_spent\": 490.5,\n        \"difference\": -490.5,\n        \"status\": \"Over Budget\"\n    }\n}"
+				},
+				{
+					"name": "Reports Budget Vs Actual",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/reports/budget-vs-actual",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"reports",
+								"budget-vs-actual"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.4.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Apr 2025 04:36:31 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"status_code\": 200,\n    \"message\": \"Budget vs. Actual Report\",\n    \"data\": {\n        \"budget\": \"40000.00\",\n        \"actual_spent\": 9392,\n        \"difference\": 30608,\n        \"status\": \"Under Budget\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Reports Historical Trends",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/reports/historical-trends",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"reports",
+						"historical-trends"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Reports Historical Trends",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/reports/historical-trends",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"reports",
+								"historical-trends"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.4.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 22 Apr 2025 09:31:30 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"status_code\": 200,\n    \"message\": \"Historical Spending Trends\",\n    \"data\": [\n        {\n            \"month\": \"2025-04\",\n            \"total_spent\": \"490.50\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "Reports Historical Trends",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/reports/historical-trends",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"reports",
+								"historical-trends"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.4.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Apr 2025 04:36:55 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"status_code\": 200,\n    \"message\": \"Historical Spending Trends\",\n    \"data\": [\n        {\n            \"month\": \"2025-04\",\n            \"total_spent\": \"9392.00\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Reports Top Days",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/reports/top-days",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"reports",
+						"top-days"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Reports Top Days",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/reports/top-days",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"reports",
+								"top-days"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.4.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Apr 2025 04:37:16 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"status_code\": 200,\n    \"message\": \"Top 5 Spending Days\",\n    \"data\": [\n        {\n            \"date\": \"2025-04-24T00:00:00.000000Z\",\n            \"total_spent\": \"7201.50\"\n        },\n        {\n            \"date\": \"2025-04-22T00:00:00.000000Z\",\n            \"total_spent\": \"1100.00\"\n        },\n        {\n            \"date\": \"2025-04-23T00:00:00.000000Z\",\n            \"total_spent\": \"600.00\"\n        },\n        {\n            \"date\": \"2025-04-21T00:00:00.000000Z\",\n            \"total_spent\": \"490.50\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Reports Most Frequent Category",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/reports/most-frequent-category",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"reports",
+						"most-frequent-category"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Reports Most Frequent Category",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/reports/most-frequent-category",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"reports",
+								"most-frequent-category"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.4.6"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 24 Apr 2025 04:37:41 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"status_code\": 200,\n    \"message\": \"Most Frequently Used Category\",\n    \"data\": {\n        \"category_id\": 3,\n        \"category_name\": \"Breakfast\",\n        \"count\": 4\n    }\n}"
+				}
+			]
+		}
+	]
+}

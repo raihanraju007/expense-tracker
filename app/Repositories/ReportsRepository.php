@@ -23,12 +23,8 @@ class ReportsRepository
         return Expense::where('user_id', Auth::id())
             ->whereMonth('date', now()->month)
             ->whereYear('date', now()->year)
+            ->with('category')
             ->get();
-    }
-
-    public function getAllExpenses(): Collection
-    {
-        return Expense::where('user_id', Auth::id())->get();
     }
 
     public function getMonthlyExpenseSum(): float
@@ -48,17 +44,23 @@ class ReportsRepository
             ->get();
     }
 
-    public function getExpensesBetween($start, $end): Collection
+    public function getTopSpendingDays(): Collection
     {
         return Expense::where('user_id', Auth::id())
-            ->when($start, fn($q) => $q->where('date', '>=', $start))
-            ->when($end, fn($q) => $q->where('date', '<=', $end))
-            ->orderBy('date', 'asc')
+            ->selectRaw('date, SUM(amount) as total')
+            ->groupBy('date')
+            ->orderByDesc('total')
+            ->limit(5)
             ->get();
     }
 
-    public function getAllWithCategory(): Collection
+    public function getMostFrequentCategory(): ?object
     {
-        return Expense::with('category')->where('user_id', Auth::id())->get();
+        return Expense::where('user_id', Auth::id())
+            ->selectRaw('category_id, COUNT(*) as count')
+            ->groupBy('category_id')
+            ->with('category')
+            ->orderByDesc('count')
+            ->first();
     }
 }

@@ -47,8 +47,8 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/category-wise', [ReportController::class, 'categoryWise']);
         Route::get('/budget-vs-actual', [ReportController::class, 'budgetVsActual']);
         Route::get('/historical-trends', [ReportController::class, 'historicalTrends']);
-        Route::get('/timeline', [ReportController::class, 'timeline']);
-        Route::get('/custom-period', [ReportController::class, 'customPeriod']);
+        Route::get('/top-days', [ReportController::class, 'topDays']);
+        Route::get('/most-frequent-category', [ReportController::class, 'mostFrequent']);
     });
 
 

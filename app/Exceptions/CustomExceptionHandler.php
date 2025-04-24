@@ -3,17 +3,21 @@
 namespace App\Exceptions;
 
 use Throwable;
-use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Validation\ValidationException;
 use Illuminate\Auth\AuthenticationException;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Database\QueryException;
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class CustomExceptionHandler extends ExceptionHandler
 {
+    protected function shouldReturnJson($request, Throwable $e): bool
+    {
+        return true;
+    }
+
     public function render($request, Throwable $e)
     {
         if ($e instanceof ValidationException) {
@@ -29,16 +33,19 @@ class CustomExceptionHandler extends ExceptionHandler
         }
 
         if ($e instanceof AuthenticationException) {
-            return $this->jsonResponse(401, 'Unauthenticated');
+            return $this->unauthenticated($request, $e); 
         }
 
         if ($e instanceof HttpException) {
-            return $this->jsonResponse($e->getStatusCode(), $e->getMessage() ?: 'HTTP error occurred');
+            return $this->jsonResponse(
+                $e->getStatusCode(),
+                $e->getMessage() ?: 'HTTP error occurred'
+            );
         }
 
         if ($e instanceof QueryException) {
             return $this->jsonResponse(500, 'Database error', [
-                'error' => $e->getMessage()
+                'error' => config('app.debug') ? $e->getMessage() : null
             ]);
         }
 
@@ -46,6 +53,7 @@ class CustomExceptionHandler extends ExceptionHandler
             'error' => config('app.debug') ? $e->getMessage() : null
         ]);
     }
+
 
     protected function unauthenticated($request, AuthenticationException $exception)
     {

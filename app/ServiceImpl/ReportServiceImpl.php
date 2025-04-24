@@ -17,7 +17,7 @@ class ReportServiceImpl implements ReportService
         $expenses = $this->repo->getMonthlyExpenses();
         $totalSpent = $expenses->sum('amount');
 
-        $summary = [
+        return [
             'budget_amount' => $budget?->amount ?? 0,
             'total_spent' => $totalSpent,
             'budget_used_percentage' => $budget ? round(($totalSpent / $budget->amount) * 100, 2) : 0,
@@ -28,14 +28,11 @@ class ReportServiceImpl implements ReportService
                 ];
             })->values(),
         ];
-
-        return $summary;
     }
 
     public function categoryWiseAnalysis(): array
     {
         $expenses = $this->repo->getMonthlyExpenses();
-
         $categoryBreakdown = $expenses->groupBy('category_id')->map(function ($group) {
             return [
                 'category' => optional($group->first()->category)->name,
@@ -73,29 +70,21 @@ class ReportServiceImpl implements ReportService
         })->toArray();
     }
 
-    // public function expenseTimeline(string $start = null, string $end = null): array
-    // {
-    //     return $this->repo->getExpensesBetween($start, $end)->map(function ($expense) {
-    //         return [
-    //             'date' => $expense->date,
-    //             'amount' => $expense->amount,
-    //             'category' => optional($expense->category)->name,
-    //             'description' => $expense->description,
-    //         ];
-    //     })->toArray();
-    // }
+    public function topSpendingDays(): array
+    {
+        return $this->repo->getTopSpendingDays()->map(fn($day) => [
+            'date' => $day->date,
+            'total_spent' => $day->total,
+        ])->toArray();
+    }
 
-    // public function customPeriodReport(string $start, string $end): array
-    // {
-    //     $expenses = $this->repo->getExpensesBetween($start, $end);
-    //     return [
-    //         'total' => $expenses->sum('amount'),
-    //         'category_summary' => $expenses->groupBy('category_id')->map(function ($group) {
-    //             return [
-    //                 'category' => optional($group->first()->category)->name,
-    //                 'total_spent' => $group->sum('amount'),
-    //             ];
-    //         })->values(),
-    //     ];
-    // }
+    public function mostFrequentCategory(): array
+    {
+        $cat = $this->repo->getMostFrequentCategory();
+        return [
+            'category_id' => $cat?->category_id,
+            'category_name' => optional($cat?->category)->name,
+            'count' => $cat?->count,
+        ];
+    }
 }
